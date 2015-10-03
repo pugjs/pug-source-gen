@@ -1,0 +1,28 @@
+{
+  "name": "jade-source-gen",
+  "version": "0.0.1",
+  "description": "Generate Jade source from a Jade AST",
+  "keywords": [
+    "jade"
+  ],
+  "dependencies": {
+    "constantinople": "^3.0.2",
+    "jade-walk": "0.0.2",
+    "object-assign": "^4.0.1",
+    "repeat-string": "^1.5.2"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.2",
+    "testit": "^2.0.2"
+  },
+  "scripts": {
+    "test": "node test && npm run coverage",
+    "coverage": "istanbul cover test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jadejs/jade-source-gen.git"
+  },
+  "author": "Timothy Gu <timothygu99@gmail.com>",
+  "license": "MIT"
+}
