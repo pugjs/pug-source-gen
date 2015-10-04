@@ -273,6 +273,7 @@ Compiler.prototype = {
       return;
     }
 
+    var originalNested = this.nested;
     if (this.useDot(block, parent)) {
       if (parent && (parent.type === 'Tag' || parent.type === 'Mixin')) {
         this.buffer('.');
@@ -282,13 +283,13 @@ Compiler.prototype = {
       return this.visitPipelessTextBlock(block);
     } else if (this.useColon(block, parent)) {
       this.buffer(': ');
-      var originalNested = this.nested;
       this.nested = true;
       this.visit(block.nodes[0], block, true);
       this.nested = originalNested;
-      return
+      return;
     }
 
+    this.nested = false;
     this.indents++;
     var prevNode = parent || {};
     block.nodes.forEach(function(node, i) {
@@ -296,6 +297,7 @@ Compiler.prototype = {
       prevNode = node;
     }.bind(this));
     this.indents--;
+    this.nested = originalNested;
   },
 
   visitMixinBlock: function(block) {
