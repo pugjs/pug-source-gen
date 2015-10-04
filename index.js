@@ -142,6 +142,7 @@ Compiler.prototype = {
     var node = block.nodes[0];
     var blockOk = block.nodes.length === 1 && ({
       Code: true,
+      Filter: true,
       Mixin: node.call,
       Tag: true,
       Text: true
@@ -509,7 +510,7 @@ Compiler.prototype = {
     var name = filter.name;
 
     var buf = ':' + name + this.attrs(filter.attrs);
-    if (inline) this.buffer('#[');
+    if (inline && !this.nested) this.buffer('#[');
     if (inline || this.nested) this.buffer(buf);
     else this.bufLine(buf);
 
@@ -520,7 +521,7 @@ Compiler.prototype = {
         this.nested = true;
         this.visitFilter(filter.block.nodes[0], inline, filter);
         this.nested = originalNested;
-      } else if (inline) {
+      } else if (inline && !this.nested) {
         if (filter.block.nodes[0].type === 'Text') this.buffer(' ');
         this.visit(filter.block, parent, inline);
       } else {
