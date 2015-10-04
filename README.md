@@ -1,6 +1,6 @@
 # jade-source-gen
 
-Generate Jade sources from a Jade AST.
+Generate Jade sources from a Jade AST. The resultant source may be different from the original Jade source, but the rendered output should be the same.
 
 [![Build Status](https://img.shields.io/travis/jadejs/jade-source-gen/master.svg)](https://travis-ci.org/jadejs/jade-source-gen)
 [![Dependency Status](https://img.shields.io/gemnasium/jadejs/jade-source-gen.svg)](https://gemnasium.com/jadejs/jade-source-gen)
@@ -13,9 +13,9 @@ Generate Jade sources from a Jade AST.
 ## Usage
 
 ```js
-var lex = require('../jade-lexer');
-var parse = require('../jade-parser');
-var genSource = require('../jade-source-gen');
+var lex = require('jade-lexer');
+var parse = require('jade-parser');
+var genSource = require('jade-source-gen');
 
 var source = `
 include a
@@ -31,8 +31,8 @@ html
     +myMixin('Content').klass2
       h1 Heading
 `;
-
 var ast = parse(lex(source));
+
 var generatedSource = genSource(ast);
 // =>
 // include a
