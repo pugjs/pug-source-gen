@@ -143,7 +143,8 @@ Compiler.prototype = {
     var blockOk = block.nodes.length === 1 && ({
       Code: true,
       Mixin: node.call,
-      Tag: true
+      Tag: true,
+      Text: true
     })[node.type];
     return parentOk && parent.block === block && blockOk;
   },
@@ -380,16 +381,26 @@ Compiler.prototype = {
   },
 
   visitText: function(text, inline) {
+    if (!text.val) return;
+
     if (text.isHtml) {
-      if (inline) throw new Error('HTML text and inline');
-      this.bufLine();
+      if (!inline && !this.nested) this.bufLine();
       this.visitPipelessText(text.val);
-    } else if (inline) {
-      this.buffer(text.val.replace(/\\?#([[{])/g, '\\#$1'));
+      return;
     } else if (text.val === '\n') {
+      if (inline || this.nested) {
+        throw new Error('inline text contains new line');
+      }
       this.bufLine('| ');
-    } else if (text.val) {
-      this.bufLine('| ' + text.val.replace(/#([[{])/g, '\\#$1'));
+      return;
+    }
+    var src = text.val.replace(/\\?#([[{])/g, '\\#$1');
+    if (inline && !this.nested) {
+      this.buffer(src);
+    } else if (this.nested) {
+      this.buffer('| ' + src)
+    } else {
+      this.bufLine('| ' + src);
     }
   },
 
