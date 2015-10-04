@@ -141,6 +141,7 @@ Compiler.prototype = {
     })[parent.type];
     var node = block.nodes[0];
     var blockOk = block.nodes.length === 1 && ({
+      Code: true,
       Mixin: node.call,
       Tag: true
     })[node.type];
