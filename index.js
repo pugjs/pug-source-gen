@@ -281,7 +281,7 @@ Compiler.prototype = {
       this.buffer(': ');
       var originalNested = this.nested;
       this.nested = true;
-      this.visit(block.nodes[0], true, block);
+      this.visit(block.nodes[0], block, true);
       this.nested = originalNested;
       return
     }
