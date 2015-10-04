@@ -136,6 +136,7 @@ Compiler.prototype = {
 
     var parentOk = parent && ({
       Mixin: parent && parent.call,
+      Include: true,
       Tag: true,
       When: true
     })[parent.type];
