@@ -1,6 +1,6 @@
 {
   "name": "pug-source-gen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate Pug source from a Pug AST",
   "keywords": [
     "pug"
