@@ -1,21 +1,21 @@
-# jade-source-gen
+# pug-source-gen
 
-Generate Jade sources from a Jade AST. The resultant source may be different from the original Jade source, but the rendered output should be the same.
+Generate Pug sources from a Pug AST. The resultant source may be different from the original Pug source, but the rendered output should be the same.
 
-[![Build Status](https://img.shields.io/travis/jadejs/jade-source-gen/master.svg)](https://travis-ci.org/jadejs/jade-source-gen)
-[![Dependency Status](https://img.shields.io/gemnasium/jadejs/jade-source-gen.svg)](https://gemnasium.com/jadejs/jade-source-gen)
-[![NPM version](https://img.shields.io/npm/v/jade-source-gen.svg)](https://www.npmjs.org/package/jade-source-gen)
+[![Build Status](https://img.shields.io/travis/pugjs/pug-source-gen/master.svg)](https://travis-ci.org/pugjs/pug-source-gen)
+[![Dependency Status](https://img.shields.io/gemnasium/pugjs/pug-source-gen.svg)](https://gemnasium.com/pugjs/pug-source-gen)
+[![NPM version](https://img.shields.io/npm/v/pug-source-gen.svg)](https://www.npmjs.org/package/pug-source-gen)
 
 ## Installation
 
-    npm install jade-source-gen
+    npm install pug-source-gen
 
 ## Usage
 
 ```js
-var lex = require('jade-lexer');
-var parse = require('jade-parser');
-var genSource = require('jade-source-gen');
+var lex = require('pug-lexer');
+var parse = require('pug-parser');
+var genSource = require('pug-source-gen');
 
 var source = `
 include a
