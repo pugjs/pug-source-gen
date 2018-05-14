@@ -7,13 +7,13 @@
   ],
   "dependencies": {
     "constantinople": "^3.0.2",
-    "pug-walk": "0.0.3",
+    "pug-walk": "^1.1.7",
     "object-assign": "^4.0.1",
     "repeat-string": "^1.5.2"
   },
   "devDependencies": {
-    "istanbul": "^0.3.2",
-    "testit": "^2.0.2"
+    "istanbul": "^0.4.5",
+    "testit": "^3.0.0"
   },
   "scripts": {
     "test": "node test && npm run coverage",
