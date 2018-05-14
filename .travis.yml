@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "6"
+  - "8"
+  - "10"
+
+# Use faster Docker architecture on Travis.
+sudo: false
+
+script: yarn test
+# TODO: coverage
+# after_success: npm run coveralls
